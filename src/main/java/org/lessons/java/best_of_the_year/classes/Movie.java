@@ -2,13 +2,13 @@ package org.lessons.java.best_of_the_year.classes;
 
 public class Movie {
 
-  private int id;
+  private Integer id;
   private String title;
 
   public Movie() {
   };
 
-  public Movie(int id, String title) {
+  public Movie(Integer id, String title) {
     this.id = id;
     this.title = title;
   }
@@ -17,7 +17,7 @@ public class Movie {
     return this.id;
   }
 
-  public void setId(int id) {
+  public void setId(Integer id) {
     this.id = id;
   }
 

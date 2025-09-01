@@ -2,22 +2,22 @@ package org.lessons.java.best_of_the_year.classes;
 
 public class Song {
 
-  private int id;
+  private Integer id;
   private String title;
 
   public Song() {
   };
 
-  public Song(int id, String title) {
+  public Song(Integer id, String title) {
     this.id = id;
     this.title = title;
   }
 
-  public int getId() {
+  public Integer getId() {
     return this.id;
   }
 
-  public void setId(int id) {
+  public void setId(Integer id) {
     this.id = id;
   }
 
