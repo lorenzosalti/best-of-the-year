@@ -23,43 +23,64 @@ public class HomeController {
     return "home";
   };
 
-  // Lists Methods
+  // Lists Methods by String
+  // @GetMapping("/movies")
+  // public String moviesPage(Model model) {
+  // String movieTitles = "";
+
+  // for (Movie movie : getBestMovies()) {
+  // movieTitles += movie.getTitle() + ", ";
+  // }
+
+  // if (movieTitles.length() > 0) {
+  // movieTitles = movieTitles.substring(0, movieTitles.length() - 2);
+  // }
+
+  // model.addAttribute("name", "Lorenzo S.");
+  // model.addAttribute("title", "Movies");
+  // model.addAttribute("list", movieTitles);
+
+  // return "stringList";
+  // }
+
+  // @GetMapping("/songs")
+  // public String songsPage(Model model) {
+  // String songTitles = "";
+
+  // for (Song song : getBestSongs()) {
+  // songTitles += song.getTitle() + ", ";
+  // }
+
+  // if (songTitles.length() > 0) {
+  // songTitles = songTitles.substring(0, songTitles.length() - 2);
+  // }
+
+  // model.addAttribute("name", "Lorenzo S.");
+  // model.addAttribute("title", "Songs");
+  // model.addAttribute("list", songTitles);
+
+  // return "stringList";
+  // }
+
+  // Lists Methods by Object
   @GetMapping("/movies")
   public String moviesPage(Model model) {
-    String movieTitles = "";
-
-    for (Movie movie : getBestMovies()) {
-      movieTitles += movie.getTitle() + ", ";
-    }
-
-    if (movieTitles.length() > 0) {
-      movieTitles = movieTitles.substring(0, movieTitles.length() - 2);
-    }
 
     model.addAttribute("name", "Lorenzo S.");
     model.addAttribute("title", "Movies");
-    model.addAttribute("list", movieTitles);
+    model.addAttribute("list", getBestMovies());
 
-    return "stringList";
+    return "list";
   }
 
   @GetMapping("/songs")
   public String songsPage(Model model) {
-    String songTitles = "";
-
-    for (Song song : getBestSongs()) {
-      songTitles += song.getTitle() + ", ";
-    }
-
-    if (songTitles.length() > 0) {
-      songTitles = songTitles.substring(0, songTitles.length() - 2);
-    }
 
     model.addAttribute("name", "Lorenzo S.");
     model.addAttribute("title", "Songs");
-    model.addAttribute("list", songTitles);
+    model.addAttribute("list", getBestSongs());
 
-    return "stringList";
+    return "list";
   }
 
   // DetailPage Methods
