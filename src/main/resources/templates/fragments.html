@@ -25,10 +25,12 @@
   </nav>
 
 
-  <!-- list fragment -->
-  <div th:fragment="list-card(list)" class="card mx-auto" style="width: 50%;">
+  <!-- list card fragment -->
+  <div th:fragment="list-card(list, url)" class="card mx-auto" style="width: 50%;">
     <ul class="list-group list-group-flush text-center ">
-      <li th:each="item : ${list}" th:text="${item.title}" class="list-group-item" />
+      <li th:each="item : ${list}" class="list-group-item">
+        <a th:href="${url} + '/' + ${item.id}" th:text="${item.title}" />
+      </li>
     </ul>
   </div>
 

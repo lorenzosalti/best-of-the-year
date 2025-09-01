@@ -17,7 +17,7 @@
     <div class="container">
       <h1 th:text="'Best ' + ${title}" class="text-center" />
 
-      <th:block th:insert="~{fragments :: list-card(${list})}" />
+      <th:block th:insert="~{fragments :: list-card(${list}, ${url})}" />
     </div>
   </main>
 
