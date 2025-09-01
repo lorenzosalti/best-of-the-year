@@ -13,19 +13,24 @@
 <body>
   <header th:insert="~{fragments :: navbar}" />
 
-  <main>
+  <main class="container">
 
-    <th:block th:if="${detail.length() > 0}">
-      <h1 th:text="'One of the best ' + ${title} + ' of the year by ' + ${name}" />
+    <th:block th:if="${isFound}">
+      <h1 th:text="'One of the best ' + ${title} + ' of the year'" class="text-center" />
+
+      <th:block th:insert="~{fragments :: detail-card(${item})}" />
     </th:block>
 
-    <th:block th:unless="${detail.length() > 0}">
-      <h1 th:text="'Sorry. No ' + ${title} + ' found. :('" />
+
+    <th:block th:unless="${isFound}">
+      <h1 th:text="'Sorry. No ' + ${title} + ' found. :('" class="text-center" />
     </th:block>
 
-    <p th:text="${detail}" />
 
   </main>
+
+  <script th:src="@{/webjars/bootstrap/5.3.3/js/bootstrap.bundle.min.js}" />
+
 </body>
 
 </html>
