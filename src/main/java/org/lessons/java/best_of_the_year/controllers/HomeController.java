@@ -29,6 +29,10 @@ public class HomeController {
       movieTitles += movie.getTitle() + ", ";
     }
 
+    if (movieTitles.length() > 0) {
+      movieTitles = movieTitles.substring(0, movieTitles.length() - 2);
+    }
+
     model.addAttribute("name", "Lorenzo S.");
     model.addAttribute("title", "Movies");
     model.addAttribute("list", movieTitles);
@@ -42,6 +46,10 @@ public class HomeController {
 
     for (Song song : getBestSongs()) {
       songTitles += song.getTitle() + ", ";
+    }
+
+    if (songTitles.length() > 0) {
+      songTitles = songTitles.substring(0, songTitles.length() - 2);
     }
 
     model.addAttribute("name", "Lorenzo S.");
