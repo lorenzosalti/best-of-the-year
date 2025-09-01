@@ -14,12 +14,17 @@
   <header th:insert="~{fragments :: navbar}" />
 
   <main>
-    <h1 th:text="'Best ' + ${title} + ' of the year by ' + ${name}" />
+    <div class="container">
+      <h1 th:text="'Best ' + ${title}" class="text-center" />
 
-    <ul>
-      <li th:each="item : ${list}" th:text="${item.title}" />
-    </ul>
+      <div class="card mx-auto" style="width: 50%;">
+        <ul class="list-group list-group-flush text-center ">
+          <li th:each="item : ${list}" th:text="${item.title}" class="list-group-item" />
+        </ul>
+      </div>
+    </div>
   </main>
+
 </body>
 
 </html>
