@@ -68,6 +68,7 @@ public class HomeController {
 
     model.addAttribute("name", "Lorenzo S.");
     model.addAttribute("title", "Movies");
+    model.addAttribute("url", "/movies");
     model.addAttribute("list", getBestMovies());
 
     return "list";
@@ -78,6 +79,7 @@ public class HomeController {
 
     model.addAttribute("name", "Lorenzo S.");
     model.addAttribute("title", "Songs");
+    model.addAttribute("url", "/songs");
     model.addAttribute("list", getBestSongs());
 
     return "list";
