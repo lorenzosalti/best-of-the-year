@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html xmlns="http://www.thymeleaf.org">
+
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+
+  <title>Best of</title>
+
+  <link th:rel="stylesheet" th:href="@{/webjars/bootstrap/5.3.3/css/bootstrap.min.css}" />
+</head>
+
+<body>
+  <header th:insert="~{fragments :: navbar}" />
+
+  <main>
+    <h1 th:text="'Best ' + ${title} + ' of the year by ' + ${name}" />
+
+    <ul>
+      <li th:each="item : ${list}" th:text="${item.title}" />
+    </ul>
+  </main>
+</body>
+
+</html>
