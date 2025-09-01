@@ -11,13 +11,13 @@
 </head>
 
 <body>
-  <header>
-    <h1 th:text="'Best ' + ${title} + ' of the year by ' + ${name}" />
-  </header>
+  <header th:insert="~{fragments :: navbar}" />
 
-  <body>
+  <main>
+    <h1 th:text="'Best ' + ${title} + ' of the year by ' + ${name}" />
+
     <p th:text="${list}" />
-  </body>
+  </main>
 </body>
 
 </html>

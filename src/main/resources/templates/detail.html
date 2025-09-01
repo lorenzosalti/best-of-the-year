@@ -11,7 +11,10 @@
 </head>
 
 <body>
-  <header>
+  <header th:insert="~{fragments :: navbar}" />
+
+  <main>
+
     <th:block th:if="${detail.length() > 0}">
       <h1 th:text="'One of the best ' + ${title} + ' of the year by ' + ${name}" />
     </th:block>
@@ -19,13 +22,10 @@
     <th:block th:unless="${detail.length() > 0}">
       <h1 th:text="'Sorry. No ' + ${title} + ' found. :('" />
     </th:block>
-  </header>
 
-  <body>
     <p th:text="${detail}" />
 
-    <h2 class="text-body-danger text-decoration-line-through">prova bootstrap</h2>
-  </body>
+  </main>
 </body>
 
 </html>
