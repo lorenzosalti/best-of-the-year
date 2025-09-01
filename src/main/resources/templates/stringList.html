@@ -1,0 +1,18 @@
+<!DOCTYPE html>
+<html xmlns="http://www.thymeleaf.org">
+
+<head>
+  <title>Best of</title>
+</head>
+
+<body>
+  <header>
+    <h1 th:text="'Best ' + ${title} + ' of the year by ' + ${name}" />
+  </header>
+
+  <body>
+    <p th:text="${list}" />
+  </body>
+</body>
+
+</html>
