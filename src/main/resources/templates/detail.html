@@ -7,7 +7,13 @@
 
 <body>
   <header>
-    <h1 th:text="'One of the best ' + ${title} + ' of the year by ' + ${name}" />
+    <th:block th:if="${detail.length() > 0}">
+      <h1 th:text="'One of the best ' + ${title} + ' of the year by ' + ${name}" />
+    </th:block>
+
+    <th:block th:unless="${detail.length() > 0}">
+      <h1 th:text="'Sorry. No ' + ${title} + ' found. :('" />
+    </th:block>
   </header>
 
   <body>
