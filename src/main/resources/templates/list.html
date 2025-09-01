@@ -17,11 +17,7 @@
     <div class="container">
       <h1 th:text="'Best ' + ${title}" class="text-center" />
 
-      <div class="card mx-auto" style="width: 50%;">
-        <ul class="list-group list-group-flush text-center ">
-          <li th:each="item : ${list}" th:text="${item.title}" class="list-group-item" />
-        </ul>
-      </div>
+      <th:block th:insert="~{fragments :: list-card(${list})}" />
     </div>
   </main>
 
