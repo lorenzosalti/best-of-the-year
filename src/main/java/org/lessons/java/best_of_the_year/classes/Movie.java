@@ -1,6 +1,8 @@
 package org.lessons.java.best_of_the_year.classes;
 
-public class Movie {
+import java.io.Serializable;
+
+public class Movie implements Serializable {
 
   private Integer id;
   private String title;
