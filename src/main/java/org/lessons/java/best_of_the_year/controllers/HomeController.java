@@ -86,42 +86,42 @@ public class HomeController {
   // DetailPage Methods
   @GetMapping("/movies/{id}")
   public String movieDetailPage(@PathVariable("id") String movieId, Model model) {
-    String movieDetail = "";
+
+    model.addAttribute("name", "Lorenzo S.");
+    model.addAttribute("title", "Movies");
+    model.addAttribute("isFound", false);
 
     for (Movie movie : getBestMovies()) {
       Integer id = movie.getId();
 
       if (id.toString().equals(movieId)) {
-        movieDetail = movie.getTitle();
-        break;
+        model.addAttribute("item", movie);
+        model.addAttribute("isFound", true);
+        return "detail";
       }
 
     }
-
-    model.addAttribute("name", "Lorenzo S.");
-    model.addAttribute("title", "Movies");
-    model.addAttribute("detail", movieDetail);
 
     return "detail";
   }
 
   @GetMapping("/songs/{id}")
   public String songDetailPage(@PathVariable("id") String songId, Model model) {
-    String songDetail = "";
+
+    model.addAttribute("name", "Lorenzo S.");
+    model.addAttribute("title", "Songs");
+    model.addAttribute("isFound", false);
 
     for (Song song : getBestSongs()) {
       Integer id = song.getId();
 
       if (id.toString().equals(songId)) {
-        songDetail = song.getTitle();
-        break;
+        model.addAttribute("item", song);
+        model.addAttribute("isFound", true);
+        return "detail";
       }
 
     }
-
-    model.addAttribute("name", "Lorenzo S.");
-    model.addAttribute("title", "Songs");
-    model.addAttribute("detail", songDetail);
 
     return "detail";
   }
