@@ -25,6 +25,7 @@
   </nav>
 
 
+  <!-- list fragment -->
   <div th:fragment="list-card(list)" class="card mx-auto" style="width: 50%;">
     <ul class="list-group list-group-flush text-center ">
       <li th:each="item : ${list}" th:text="${item.title}" class="list-group-item" />
@@ -33,7 +34,7 @@
 
 
   <!-- detail card fragment -->
-  <div th:fragment="detail-card(item)" class="card" style="width: 18rem;">
+  <div th:fragment="detail-card(item)" class="card mx-auto" style="width: 18rem;">
     <img src="..." class="card-img-top" alt="...">
     <div class="card-body">
       <h5 th:text="${item.title}" class="card-title text-center" />
