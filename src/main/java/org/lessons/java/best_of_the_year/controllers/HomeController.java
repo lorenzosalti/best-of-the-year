@@ -9,11 +9,14 @@ import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PathVariable;
+import org.springframework.web.bind.annotation.RequestParam;
 
 @Controller
 @RequestMapping("/")
 public class HomeController {
 
+  // HomePage Method
   @GetMapping("/")
   public String homePage(Model model, String name) {
     name = "Lorenzo S.";
@@ -21,6 +24,7 @@ public class HomeController {
     return "home";
   };
 
+  // Lists Methods
   @GetMapping("/movies")
   public String moviesPage(Model model) {
     String movieTitles = "";
@@ -59,6 +63,50 @@ public class HomeController {
     return "stringList";
   }
 
+  // DetailPage Methods
+  @GetMapping("/movies/{id}")
+  public String movieDetailPage(@PathVariable("id") String movieId, Model model) {
+    String movieDetail = "";
+
+    for (Movie movie : getBestMovies()) {
+      Integer id = movie.getId();
+
+      if (id.toString().equals(movieId)) {
+        movieDetail = movie.getTitle();
+        break;
+      }
+
+    }
+
+    model.addAttribute("name", "Lorenzo S.");
+    model.addAttribute("title", "Movies");
+    model.addAttribute("detail", movieDetail);
+
+    return "detail";
+  }
+
+  @GetMapping("/songs/{id}")
+  public String songDetailPage(@PathVariable("id") String songId, Model model) {
+    String songDetail = "";
+
+    for (Song song : getBestSongs()) {
+      Integer id = song.getId();
+
+      if (id.toString().equals(songId)) {
+        songDetail = song.getTitle();
+        break;
+      }
+
+    }
+
+    model.addAttribute("name", "Lorenzo S.");
+    model.addAttribute("title", "Songs");
+    model.addAttribute("detail", songDetail);
+
+    return "detail";
+  }
+
+  // Lists Generators
   private List<Movie> getBestMovies() {
     List<Movie> movieList = new ArrayList<Movie>();
     movieList.add(new Movie(1, "The Alto Knights"));
